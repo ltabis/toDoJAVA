@@ -1,2 +1,2 @@
 # toDoJAVA
-Java and bash todo manager.
+## Java and bash todo manager.
