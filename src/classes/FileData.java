@@ -28,9 +28,9 @@ public class FileData {
 		}
 	}
 	
-	private int countLines(String fileName, String listName) throws IOException {
+	private int countLines(String listName) throws IOException {
 		
-		FileReader read = new FileReader("./lists/" + listName + "/" + fileName);
+		FileReader read = new FileReader("./lists/" + listName);
 		BufferedReader buffer = new BufferedReader(read);
 		int nbLines = 0;
 		
@@ -40,11 +40,11 @@ public class FileData {
 		return nbLines;
 	}
 	
-	public String[] readFile(String fileName, String listName) throws IOException {
+	public String[] readFile(String ListName) throws IOException {
 
-		FileReader read = new FileReader("./lists/" + listName + "/" + fileName);
+		FileReader read = new FileReader("./lists/" + ListName);
 		BufferedReader buffer = new BufferedReader(read);
-		int nbLines = countLines(fileName, listName);
+		int nbLines = countLines(ListName);
 		String[] lines = new String[nbLines];
 		
 		for (int i = 0; i < nbLines; i++) {

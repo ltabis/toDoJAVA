@@ -1,0 +1,26 @@
+How to use toDoJAVA :
+
+>> todo
+   Display all lists, their content and Id's.
+
+>> todo [list name]
+   Display the content and Id's of a list.
+
+>> todo add [list name]
+   Create a new list.
+
+>> todo add [list name] [text description]
+   Create a todo card inside a list.
+
+>> todo check [list name] [card id]
+   Check a todo card inside a list (done state)
+   if this card is already checked, the program will uncheck it for you.
+
+>> todo remove [list name]
+   Remove a list.
+
+>> todo remove [list name] [card id]
+   Remove a card from a list.
+
+>> todo help
+   Display this help.

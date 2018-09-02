@@ -20,7 +20,7 @@ public class Main {
 			System.out.println("Display");
 		FileData files = new FileData();
 		files.getFileNames();
-		String[] str = files.readFile("exemple.txt", "list1");
+		String[] str = files.readFile("exemple.txt");
 		
 		for (int i = 0; i < str.length; i++) {
 			System.out.println(str[i]);
