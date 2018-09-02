@@ -1,4 +1,5 @@
 package toDoJAVA;
+import classes.FileData;
 
 /**
  * @author lucas.tabis
@@ -9,7 +10,13 @@ package toDoJAVA;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Souhaitez vous convertir une autre température ? (0/N)");
+		if ("add".equals(args[0]) == true)
+			System.out.println("Add function");
+		if ("add".equals(args[0]) == true)
+			System.out.println("Add function");
+		else
+			System.out.println("Display");
+		FileData files = new FileData();
+		files.getFileNames();
 	}
-
 }
