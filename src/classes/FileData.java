@@ -19,15 +19,7 @@ public class FileData {
 		folder = new File("./lists");
 		listOfFiles = folder.listFiles();
 	}
-	
-	/* Debug function - to retrieve at the end of development */
-	public void getFileNames() {
 		
-		for (int i = 0; i < listOfFiles.length; i++) {
-			System.out.println(listOfFiles[i].getName());
-		}
-	}
-	
 	private int countLines(String listName) throws IOException {
 		
 		FileReader read = new FileReader("./lists/" + listName);
@@ -47,11 +39,21 @@ public class FileData {
 		int nbLines = countLines(ListName);
 		String[] lines = new String[nbLines];
 		
-		for (int i = 0; i < nbLines; i++) {
+		for (int i = 0; i < nbLines; i++)
 			lines[i] = buffer.readLine();
-		}
 		
 		buffer.close();
 		return lines;
+	}
+	
+	public void showAll() throws IOException {
+		String[] fileLines;
+		
+		for (int i = 0; i < listOfFiles.length; i++) {
+			fileLines = readFile(listOfFiles[i].getName());
+			System.out.println("--- " + listOfFiles[i].getName());
+			for (int j = 0; j < fileLines.length; j++)
+				System.out.println("  + " + fileLines[j]);
+		}
 	}
 }
