@@ -12,13 +12,21 @@ import classes.FileData;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
+		
+		/* Displaying all informations on all lists and cards inside the list folder*/
 		if (args.length == 1 || (args.length == 2 &&
 		("add".equals(args[1]) == true || "remove".equals(args[1]) == true))) {
 			FileData files = new FileData();
 			files.showAll();
 			return;
+		} else if (args.length == 2 &&
+		"add".equals(args[1]) == false && "remove".equals(args[1]) == false) {
+			FileData files = new FileData();
+			files.showCards(args[1]);
+			return;
 		}
 
+		/* Special treatment */
 		Add action = new Add();
 		
 		if ("add".equals(args[1]) == true && args.length == 3) {

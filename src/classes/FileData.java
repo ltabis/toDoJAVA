@@ -19,7 +19,9 @@ public class FileData {
 		folder = new File("./lists");
 		listOfFiles = folder.listFiles();
 	}
-		
+	
+	/* Counting lines inside of a file given as argument */
+	
 	private int countLines(String listName) throws IOException {
 		
 		FileReader read = new FileReader("./lists/" + listName);
@@ -31,6 +33,8 @@ public class FileData {
 		buffer.close();
 		return nbLines;
 	}
+	
+	/* Reading a file inside the lists folder given as argument */
 	
 	public String[] readFile(String ListName) throws IOException {
 
@@ -46,6 +50,8 @@ public class FileData {
 		return lines;
 	}
 	
+	/* Show all the lists and their available content */
+	
 	public void showAll() throws IOException {
 		String[] fileLines;
 		
@@ -55,5 +61,22 @@ public class FileData {
 			for (int j = 0; j < fileLines.length; j++)
 				System.out.println("  + " + fileLines[j]);
 		}
+	}
+	
+	/* Show all the cards of a specific list */
+
+	public void showCards(String arg) throws IOException {
+		String[] fileLines;
+		
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].getName().equals(arg)) {
+				fileLines = readFile(listOfFiles[i].getName());
+				System.out.println("--- " + listOfFiles[i].getName());
+				for (int j = 0; j < fileLines.length; j++)
+					System.out.println("  + " + fileLines[j]);
+				return;
+			}
+		}
+		System.out.println("Sorry, but the list " + arg + " does not exists");
 	}
 }
