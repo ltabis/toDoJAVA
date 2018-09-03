@@ -53,6 +53,7 @@ public class FileData {
 	/* Show all the lists and their available content */
 	
 	public void showAll() throws IOException {
+		
 		String[] fileLines;
 		
 		for (int i = 0; i < listOfFiles.length; i++) {
@@ -66,6 +67,7 @@ public class FileData {
 	/* Show all the cards of a specific list */
 
 	public void showCards(String arg) throws IOException {
+
 		String[] fileLines;
 		
 		for (int i = 0; i < listOfFiles.length; i++) {

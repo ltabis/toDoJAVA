@@ -35,6 +35,14 @@ public class Main {
 		} else if ("remove".equals(args[1]) == true && args.length == 3) {
 			action.removeList(args[2]);
 			return;
+		} else if ("add".equals(args[1]) == true && args.length == 4) {
+			action.addCard(args[2], args[3]);
+			return;
+		} else if ("remove".equals(args[1]) == true && args.length == 4) {
+			action.removeCard(args[2], args[3]);
+			return;
 		}
+
+
 	}
 }

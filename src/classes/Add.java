@@ -13,6 +13,7 @@ public class Add {
 	/* Constructor(s) */
 	public Add(){}
 	
+	/* Add a list to the lists folder */
 	
 	public void addList(String listName) throws IOException {
 		
@@ -24,6 +25,16 @@ public class Add {
 		  System.out.println("The list " + file.getName() + " already exists");
 		}
 	}
+
+	/* Add a card to a given list */
+	
+	public void addCard(String listName) throws IOException {
+		
+		File file = new File("./lists/" + listName);
+	}
+	
+	/* Remove a list from the lists folder */
+	
 	public void removeList(String listName) throws IOException {
 		
 		File file = new File("./lists/" + listName);
@@ -33,5 +44,12 @@ public class Add {
 		} else {
 		  System.out.println("The list " + file.getName() + " does not exists");
 		}
+	}
+
+	/* Remove a card to a given list */
+	
+	public void removeCard(String listName) throws IOException {
+		
+		File file = new File("./lists/" + listName);
 	}
 }
