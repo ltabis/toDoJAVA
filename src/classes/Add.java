@@ -24,4 +24,14 @@ public class Add {
 		  System.out.println("The list " + file.getName() + " already exists");
 		}
 	}
+	public void removeList(String listName) throws IOException {
+		
+		File file = new File("./lists/" + listName);
+		
+		if (file.delete()){
+		  System.out.println("New list " + file.getName() + " has been deleted");
+		} else {
+		  System.out.println("The list " + file.getName() + " does not exists");
+		}
+	}
 }

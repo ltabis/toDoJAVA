@@ -17,13 +17,16 @@ public class Main {
 			displayAllLists();
 			return;
 		}
-		if ("add".equals(args[1]) == true) {
-			System.out.println("Add function");
-			Add adding = new Add();
-			adding.addList(args[2]);
+
+		Add action = new Add();
+		
+		if ("add".equals(args[1]) == true && args.length == 3) {
+			action.addList(args[2]);
 			return;
-		} else if ("remove".equals(args[1]) == true)
-			System.out.println("Remove function");
+		} else if ("remove".equals(args[1]) == true && args.length == 3) {
+			action.removeList(args[2]);
+			return;
+		}
 		FileData files = new FileData();
 		files.getFileNames();
 		String[] str = files.readFile("exemple.txt");
