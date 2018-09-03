@@ -1,4 +1,4 @@
-package javaFiles;
+package classes;
 
 /**
  * @author lucas.tabis
