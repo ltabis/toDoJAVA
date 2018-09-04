@@ -35,26 +35,25 @@ public class Add {
 		
 		int i = 0;
 		String lastLine = null;
-		String id = null;
+		String id = "";
 		FileWriter write = new FileWriter("./lists/" + listName, true);
 		FileReader read = new FileReader("./lists/" + listName);
-		BufferedReader lastBuffer = new BufferedReader(read);
 		BufferedReader buffer = new BufferedReader(read);
 		
-		for (; buffer.readLine() != null;)
-			lastLine = lastBuffer.readLine();
-		for (; lastLine != null && lastLine.charAt(i) != ':' && i < lastLine.length(); i++)
+		for (String str; (str = buffer.readLine()) != null;)
+			lastLine = str;
+		System.out.println(lastLine);
+		for (; lastLine != null && lastLine.charAt(i) != ' ' && i < lastLine.length(); i++) /* Error handling needs to be made */
 			id += lastLine.charAt(i);
 		if (lastLine == null || i == lastLine.length()) {
-			write.write("1 : " + cardDescription);
+			write.write("1 : " + cardDescription + "\n");
 			buffer.close();
-			lastBuffer.close();
 			write.close();
 			return;
 		}
-		write.write(Integer.parseInt(id) + 1 + " : " + cardDescription);
+		System.out.println("OK + " + id);
+		write.write((Integer.parseInt(id) + 1) + " : " + cardDescription + "\n");
 		buffer.close();
-		lastBuffer.close();
 		write.close();
 	}
 	

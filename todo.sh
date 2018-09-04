@@ -5,4 +5,3 @@ if [ "$1" = "help" ]; then
 fi
 
 java -jar misc/todo.jar "$@"
-echo "$@"
