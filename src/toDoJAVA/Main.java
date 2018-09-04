@@ -14,35 +14,35 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		
 		/* Displaying all informations on all lists and cards inside the list folder*/
-		if (args.length == 1 || (args.length == 2 &&
-		("add".equals(args[1]) == true || "remove".equals(args[1]) == true))) {
+		if (args.length == 0 || (args.length == 1 &&
+		("add".equals(args[0]	) == true || "remove".equals(args[0]) == true))) {
 			FileData files = new FileData();
 			files.showAll();
 			return;
 		} else if (args.length == 2 &&
-		"add".equals(args[1]) == false && "remove".equals(args[1]) == false) {
+		"add".equals(args[0]) == false && "remove".equals(args[0]) == false) {
 			FileData files = new FileData();
-			files.showCards(args[1]);
+			files.showCards(args[0]);
 			return;
 		}
 
 		/* Special treatment */
 		Add action = new Add();
 		
-		if ("add".equals(args[1]) == true && args.length == 3) {
-			action.addList(args[2]);
+		if ("add".equals(args[0]) == true && args.length == 2) {
+			action.addList(args[1]);
 			return;
-		} else if ("remove".equals(args[1]) == true && args.length == 3) {
-			action.removeList(args[2]);
+		} else if ("remove".equals(args[0]) == true && args.length == 2) {
+			action.removeList(args[1]);
 			return;
-		} else if ("add".equals(args[1]) == true && args.length == 4) {
-			action.addCard(args[2], args[3]);
-			return;
-		} else if ("remove".equals(args[1]) == true && args.length == 4) {
-			action.removeCard(args[2], args[3]);
+		} else if ("add".equals(args[0]) == true && args.length == 3) {
+			action.addCard(args[1], args[2]);
+			System.out.println("Your card has been added to the list " + args[1]);
 			return;
 		}
-
-
+		/*else if ("remove".equals(args[0]) == true && args.length == 3) {
+			action.removeCard(args[1], args[2]);
+			return;
+		}*/
 	}
 }

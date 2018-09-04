@@ -1,5 +1,8 @@
 package classes;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -28,9 +31,31 @@ public class Add {
 
 	/* Add a card to a given list */
 	
-	public void addCard(String listName) throws IOException {
+	public void addCard(String listName, String cardDescription) throws IOException {
 		
-		File file = new File("./lists/" + listName);
+		int i = 0;
+		String lastLine = null;
+		String id = null;
+		FileWriter write = new FileWriter("./lists/" + listName, true);
+		FileReader read = new FileReader("./lists/" + listName);
+		BufferedReader lastBuffer = new BufferedReader(read);
+		BufferedReader buffer = new BufferedReader(read);
+		
+		for (; buffer.readLine() != null;)
+			lastLine = lastBuffer.readLine();
+		for (; lastLine != null && lastLine.charAt(i) != ':' && i < lastLine.length(); i++)
+			id += lastLine.charAt(i);
+		if (lastLine == null || i == lastLine.length()) {
+			write.write("1 : " + cardDescription);
+			buffer.close();
+			lastBuffer.close();
+			write.close();
+			return;
+		}
+		write.write(Integer.parseInt(id) + 1 + " : " + cardDescription);
+		buffer.close();
+		lastBuffer.close();
+		write.close();
 	}
 	
 	/* Remove a list from the lists folder */
@@ -50,6 +75,16 @@ public class Add {
 	
 	public void removeCard(String listName) throws IOException {
 		
-		File file = new File("./lists/" + listName);
+		String id = null;
+		FileReader read = new FileReader("./lists/" + listName);
+		BufferedReader buffer = new BufferedReader(read);
+		
+		for (String str; (str = buffer.readLine()) != null;) {
+			for (int i = 0; str.charAt(i) != ':'; i++)
+				id += str.charAt(i);
+			// if (id.equals())
+		}
+		
+		buffer.close();
 	}
 }
