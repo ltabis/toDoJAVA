@@ -1,4 +1,5 @@
 package toDoJAVA;
+import java.io.File;
 import java.io.IOException;
 import classes.Add;
 import classes.FileData;
@@ -36,13 +37,17 @@ public class Main {
 			action.removeList(args[1]);
 			return;
 		} else if ("add".equals(args[0]) == true && args.length == 3) {
+			if (new File("./lists/" + args[1]).exists() == false)
+				return;
 			action.addCard(args[1], args[2]);
 			System.out.println("Your card has been added to the list " + args[1]);
 			return;
-		}
-		/*else if ("remove".equals(args[0]) == true && args.length == 3) {
+		} else if ("remove".equals(args[0]) == true && args.length == 3) {
+			if (new File("./lists/" + args[1]).exists() == false)
+				return;
 			action.removeCard(args[1], args[2]);
+			System.out.println("Your card has been removed from the list " + args[1]);
 			return;
-		}*/
+		}
 	}
 }
