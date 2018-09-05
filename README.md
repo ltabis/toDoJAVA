@@ -39,3 +39,4 @@ All of your cards have **Ids** : use the card id and associated list to delete i
 You can of course bind these command with aliases.
 
 ## Exemple :
+![alt text](https://github.com/ltabis/toDoJAVA/blob/master/misc/images/exemple.png)
