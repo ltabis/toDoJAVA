@@ -36,7 +36,11 @@ All of your cards have **Ids** : use the card id and associated list to delete i
 -> ```./todo.sh help```
    Display help.
 
-You can of course bind these command with aliases.
+You can of course bind these commands with aliases.
 
 ## Exemple :
 ![alt text](https://github.com/ltabis/toDoJAVA/blob/master/misc/images/exemple.png)
+
+## Features not yet implemented :
+
+>> check and uncheck
