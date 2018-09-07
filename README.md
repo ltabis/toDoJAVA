@@ -25,7 +25,9 @@ All of your cards have **Ids** : use the card id and associated list to delete i
 
 -> ```./todo.sh check [list name] [card id]```
    Check a todo card inside a list (done state)
-   if this card is already checked, the program will uncheck it for you.
+
+-> ```./todo.sh uncheck [list name] [card id]```
+   Uncheck a todo card inside a list.
 
 -> ```./todo.sh remove [list name]```
    Remove a list.
