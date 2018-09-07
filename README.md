@@ -43,4 +43,6 @@ You can of course bind these commands with aliases.
 
 ## Features not yet implemented :
 
->> check and uncheck
+> uncheck
+> date of modification
+> reminder
