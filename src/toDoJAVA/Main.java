@@ -46,7 +46,10 @@ public class Main {
 			System.out.println("Your card has been removed from the list " + args[1]);
 		} else if ("check".equals(args[0]) == true && args.length == 3) {
 			action.checkCard(args[1], args[2]);
-			System.out.println("Your card from the list " + args[1] + " has been checked/unchecked");
+			System.out.println("Your card from the list " + args[1] + " has been checked");
+		} else if ("uncheck".equals(args[0]) == true && args.length == 3) {
+			action.uncheckCard(args[1], args[2]);
+			System.out.println("Your card from the list " + args[1] + " has been unchecked");
 		}
 	}
 }

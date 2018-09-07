@@ -95,7 +95,7 @@ public class Add {
 		writer.close();
 	}
 	
-	/* Check/uncheck a card by it's id and list */
+	/* Check a card by it's id and list */
 	
 	public void checkCard(String listName, String id) throws IOException {
 
@@ -118,7 +118,35 @@ public class Add {
 		File realName = new File("./lists/" + listName);
 		realName.delete();
 		new File("./lists/" + listName + ".tmp").renameTo(realName);
-		
+
+		buffer.close();
+		writer.close();
+	}
+
+	/* Uncheck a card by it's id and list */
+	
+	public void uncheckCard(String listName, String id) throws IOException {
+
+		PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("./lists/" + listName + ".tmp")));
+		String search_id = "";
+		FileReader read = new FileReader("./lists/" + listName);
+		BufferedReader buffer = new BufferedReader(read);
+
+		for (String str; (str = buffer.readLine()) != null;) {
+			for (int i = 0; str.charAt(i) != ' '; i++)
+				search_id += str.charAt(i);
+			if (search_id.equals(id)) {
+				str = str.replaceFirst("\\\\ ", ": ");
+				writer.println(str);
+			} else
+				writer.println(str);
+			search_id = "";
+		}
+
+		File realName = new File("./lists/" + listName);
+		realName.delete();
+		new File("./lists/" + listName + ".tmp").renameTo(realName);
+
 		buffer.close();
 		writer.close();
 	}
