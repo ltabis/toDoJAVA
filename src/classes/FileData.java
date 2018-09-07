@@ -59,8 +59,13 @@ public class FileData {
 		for (int i = 0; i < listOfFiles.length; i++) {
 			fileLines = readFile(listOfFiles[i].getName());
 			System.out.println("\033[32m--- " + listOfFiles[i].getName() + "\033[0m");
-			for (int j = 0; j < fileLines.length; j++)
-				System.out.println("\033[34m  + \033[0m" + fileLines[j]);
+			for (int j = 0; j < fileLines.length; j++) {
+				if (fileLines[j].charAt(2) == '\\') {
+					fileLines[j] = fileLines[j].replaceFirst("\\\\", ":");
+					System.out.println("\033[32m  o \033[0m" + fileLines[j]);
+				} else
+					System.out.println("\033[34m  + \033[0m" + fileLines[j]);
+			}
 		}
 	}
 	
@@ -74,8 +79,13 @@ public class FileData {
 			if (listOfFiles[i].getName().equals(arg)) {
 				fileLines = readFile(listOfFiles[i].getName());
 				System.out.println("\033[32m--- " + listOfFiles[i].getName() + "\033[0m");
-				for (int j = 0; j < fileLines.length; j++)
-					System.out.println("\033[34m  + \033[0m" + fileLines[j]);
+				for (int j = 0; j < fileLines.length; j++) {
+					if (fileLines[j].charAt(2) == '\\') {
+						fileLines[j] = fileLines[j].replaceFirst("\\\\", ":");
+						System.out.println("\033[32m  o \033[0m" + fileLines[j]);
+					} else
+						System.out.println("\033[34m  + \033[0m" + fileLines[j]);
+				}
 				return;
 			}
 		}

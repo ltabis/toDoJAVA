@@ -16,11 +16,11 @@ public class Main {
 		
 		/* Displaying all informations on all lists and cards inside the list folder*/
 		if (args.length == 0 || (args.length == 1 &&
-		("add".equals(args[0]	) == true || "remove".equals(args[0]) == true))) {
+		("add".equals(args[0]) == true || "remove".equals(args[0]) == true))) {
 			FileData files = new FileData();
 			files.showAll();
 			return;
-		} else if (args.length == 2 &&
+		} else if (args.length == 1 &&
 		"add".equals(args[0]) == false && "remove".equals(args[0]) == false) {
 			FileData files = new FileData();
 			files.showCards(args[0]);
@@ -32,22 +32,21 @@ public class Main {
 		
 		if ("add".equals(args[0]) == true && args.length == 2) {
 			action.addList(args[1]);
-			return;
 		} else if ("remove".equals(args[0]) == true && args.length == 2) {
 			action.removeList(args[1]);
-			return;
 		} else if ("add".equals(args[0]) == true && args.length == 3) {
 			if (new File("./lists/" + args[1]).exists() == false)
 				return;
 			action.addCard(args[1], args[2]);
 			System.out.println("Your card has been added to the list " + args[1]);
-			return;
 		} else if ("remove".equals(args[0]) == true && args.length == 3) {
 			if (new File("./lists/" + args[1]).exists() == false)
 				return;
 			action.removeCard(args[1], args[2]);
 			System.out.println("Your card has been removed from the list " + args[1]);
-			return;
+		} else if ("check".equals(args[0]) == true && args.length == 3) {
+			action.checkCard(args[1], args[2]);
+			System.out.println("Your card from the list " + args[1] + " has been checked/unchecked");
 		}
 	}
 }
